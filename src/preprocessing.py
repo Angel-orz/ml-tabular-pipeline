@@ -15,4 +15,6 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
 
     df[categorical_columns] = categorical_imputer.fit_transform(df[categorical_columns])
 
+    df = pd.get_dummies(df, drop_first=True)
+
     return df
